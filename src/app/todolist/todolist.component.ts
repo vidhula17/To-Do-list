@@ -7,34 +7,27 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
-  taskArray = [{ taskName: 'Brush teeth', isCompleted: false }];
-
+  taskArray=[{taskName:'Brush',isCompleted:false}]
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
+  
+  onSubmit(form: NgForm){
     console.log(form);
-
     this.taskArray.push({
-      taskName: form.controls['task'].value,
-      isCompleted: false
-    })
+      taskName:form.controls['task'].value,
+      isCompleted:false
 
+    })
     form.reset();
   }
-
-  onDelete(index: number) {
-    console.log(index);
-
-    this.taskArray.splice(index, 1);
+  onDelete(index:number){
+    this.taskArray.splice(index,1);
   }
-
-  onCheck(index: number) {
-    console.log(this.taskArray);
-
-    this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted;
+  onCheck(index:number){
+    this.taskArray[index].  isCompleted=!this.taskArray[index].isCompleted;
   }
 
 }
