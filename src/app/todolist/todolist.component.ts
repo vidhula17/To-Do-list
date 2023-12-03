@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todolist',
@@ -8,14 +9,15 @@ import { NgForm } from '@angular/forms';
 })
 export class TodolistComponent implements OnInit {
   taskArray=[{taskName:'Brush',isCompleted:false}]
-  constructor() { }
+  
+  constructor(private router: Router) {}
+
 
   ngOnInit(): void {
   }
 
   
   onSubmit(form: NgForm){
-    console.log(form);
     this.taskArray.push({
       taskName:form.controls['task'].value,
       isCompleted:false
@@ -29,5 +31,7 @@ export class TodolistComponent implements OnInit {
   onCheck(index:number){
     this.taskArray[index].  isCompleted=!this.taskArray[index].isCompleted;
   }
+  
+
 
 }
